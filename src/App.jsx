@@ -14,7 +14,7 @@ import Footer from './components/Footer.jsx'
 gsap.registerPlugin(ScrollTrigger);
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
-const API_TOKEN = process.env.REACT_APP_TMDB_API_KEY;
+const API_TOKEN = import.meta.env.VITE_TMDB_API_KEY;
 const API_OPTIONS = {
     method: 'GET',
     headers: {
