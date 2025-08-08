@@ -138,6 +138,7 @@
 
         & .content .year {
             @apply text-gray-100 font-medium text-base;
+
         }
     }
 }
@@ -158,5 +159,35 @@
 
     &::-webkit-scrollbar {
         display: none;
+    }
+}
+
+
+/* Spinner Code */
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 10px solid;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite alternate;
+}
+@keyframes animloader {
+    0% {
+        border-color: white rgba(255, 255, 255, 0) rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    }
+    33% {
+        border-color: white white rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+    }
+    66% {
+        border-color: white white white rgba(255, 255, 255, 0);
+    }
+    100% {
+        border-color: white white white white;
     }
 }
