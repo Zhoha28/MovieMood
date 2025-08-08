@@ -15,14 +15,33 @@ const MovieCard = ({
 
     return (
         <div className="movie-card">
-            <img
-                src={
-                    poster_path
-                        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                        : '/no-movie.png'
-                }
-                alt={title}
-            />
+            {poster_path ? (
+                <img
+                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                    alt={title}
+                />
+            ) : (
+                // Placeholder div when no poster
+                <div
+                    className='text-gradient'
+                    style={{
+                        height: '350px', // same approximate height as the img
+                        backgroundColor: 'black',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        color: '#ff3c78',
+                        fontWeight: '700',
+                        fontSize: '1.5rem',
+                        userSelect: 'none',
+                        borderRadius: '0.5rem'
+                    }}
+                    aria-label="No poster available"
+                >
+                    MovieMood
+                </div>
+            )}
+
             <div className="mt-5">
                 <h3>{title}</h3>
 
