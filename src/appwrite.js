@@ -1,4 +1,8 @@
 import {Client, Databases, ID, Query} from "appwrite";
+console.log("APPWRITE_PROJECT_ID:", process.env.APPWRITE_PROJECT_ID);
+console.log("APPWRITE_DB_ID:", process.env.APPWRITE_DB_ID);
+console.log("APPWRITE_COLLECTIONS_ID:", process.env.APPWRITE_COLLECTIONS_ID);
+
 
 const PROJECT_ID = process.env.APPWRITE_PROJECT_ID;
 const DATABASE_ID = process.env.APPWRITE_DB_ID;
