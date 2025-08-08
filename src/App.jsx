@@ -3,6 +3,7 @@ import Search from "./components/Search.jsx";
 import Spacer from "./components/Spacer.jsx";
 import Spinner from "./components/Spinner.jsx"
 import MovieCard from "./components/MovieCard.jsx";
+import {useDebounce} from "react-use";
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 const API_TOKEN = import.meta.env.VITE_TMDB_API_KEY;
@@ -19,6 +20,10 @@ const App = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [movieList, setMovieList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
+
+    // usedebounce by waiting for user to stop typing
+    useDebounce(()=> setDebouncedSearchTerm(searchTerm), 1500,[searchTerm])
 
 
     const fetchMovies = async (query = '') => {
@@ -52,8 +57,8 @@ const App = () => {
     }
 
     useEffect(() => {
-        fetchMovies(searchTerm)
-    }, [searchTerm]);
+        fetchMovies(debouncedSearchTerm)
+    }, [debouncedSearchTerm]);
     return (
         <main>
             <div className="pattern"/>

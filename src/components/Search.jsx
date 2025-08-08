@@ -9,7 +9,7 @@ const Search = ({searchTerm, setSearchTerm}) => {
             <div>
             <FontAwesomeIcon icon={faSearch} />
                 <input type='text' placeholder='Search through thousands of movies...'
-                onClick={(event) => setSearchTerm(event.target.value)}
+                       onChange={(event) => setSearchTerm(event.target.value)}
                 />
             </div>
         </div>
